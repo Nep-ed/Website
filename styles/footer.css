@@ -1,0 +1,146 @@
+.footer {
+    /*background-color: #B3F0FB;*/
+    background-color: #44a59d;
+
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+/* First Row */
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+    padding-bottom: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+}
+
+.footer-section h3 {
+    font-size: 1.2em;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.footer-section p {
+    font-size: 0.9em;
+    color: #000000;
+    text-align: justify;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.social-icons img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s;
+}
+
+.social-icons img:hover {
+    transform: scale(1.2);
+}
+
+/* Second Row */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+    padding-top: 20px;
+    border-top: 1px solid #ffffff88;
+}
+
+.footer-bottom p {
+    font-size: 0.9em;
+    color: #00000062;
+}
+
+.footer-bottom a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+/* Support Button */
+.support-btn {
+    background-color: #000000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 30px;
+}
+
+.support-btn:hover {
+    background-color: #0000007c;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-top {
+        flex-direction: column;
+        text-align: center;
+
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    /* Resize social icons */
+    .social-icons img {
+        width: 25px;
+        height: 25px;
+    }
+
+    /* Adjust padding */
+    .footer {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Make sections stack on smaller screens */
+    .footer-top,
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    /* Ensure navigation menu stacks properly */
+    .header nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    /* Resize logo */
+    .logo-container img {
+        width: 80px;
+        height: auto;
+    }
+
+}
