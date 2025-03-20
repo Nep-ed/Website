@@ -1,58 +1,72 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const topics = document.querySelectorAll(".topic");
-    const sidebar = document.getElementById("sidebar");
-    const menuToggle = document.getElementById("menu-toggle");
-    const scrollTopBtn = document.getElementById("scroll-top-btn");
+const content = {
+    intro: `
+        <h2>Introduction</h2>
+        <p>Embedded systems are specialized computing systems that perform dedicated functions.</p>
+        <img src="/images/members/IMG_7689.png" alt="Embedded System Diagram" width="600">         <br /> 
+        <iframe width="600" height="350" 
+            src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
+            title="YouTube Video Player" 
+            frameborder="0" allowfullscreen>
+        </iframe>  <br /> 
+                <iframe width="600" height="350" 
+            src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
+            title="YouTube Video Player" 
+            frameborder="0" allowfullscreen>
+        </iframe>  <br /> 
+                <iframe width="600" height="350" 
+            src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
+            title="YouTube Video Player" 
+            frameborder="0" allowfullscreen>
+        </iframe>  <br /> 
+                <iframe width="600" height="350" 
+            src="https://www.youtube.com/embed/YOUR_VIDEO_ID" 
+            title="YouTube Video Player" 
+            frameborder="0" allowfullscreen>
+        </iframe>
+    `,
+    microcontrollers: `
+        <h2>Microcontrollers</h2>
+        <p>Microcontrollers are the heart of embedded systems, integrating a CPU, memory, and peripherals.</p>
+        <img src="images/microcontroller.jpg" alt="Microcontroller Diagram" width="600">
+        <iframe width="600" height="350" 
+            src="https://www.youtube.com/embed/YOUR_VIDEO_ID_2" 
+            title="YouTube Video Player" 
+            frameborder="0" allowfullscreen>
+        </iframe>
+    `,
+    rtos: `
+        <h2>RTOS Basics</h2>
+        <p>Real-Time Operating Systems (RTOS) help manage tasks efficiently in an embedded environment.</p>
+        <img src="images/rtos.jpg" alt="RTOS Diagram" width="600">
+        <iframe width="600" height="350" 
+            src="https://www.youtube.com/embed/YOUR_VIDEO_ID_3" 
+            title="YouTube Video Player" 
+            frameborder="0" allowfullscreen>
+        </iframe>
+    `,
+    communication: `
+        <h2>Communication Protocols</h2>
+        <p>Protocols like I2C, SPI, and UART enable devices to communicate efficiently.</p>
+        <img src="images/communication.jpg" alt="Communication Protocols" width="600">
+        <iframe width="600" height="350" 
+            src="https://www.youtube.com/embed/YOUR_VIDEO_ID_4" 
+            title="YouTube Video Player" 
+            frameborder="0" allowfullscreen>
+        </iframe>
+    `,
+    power: `
+        <h2>Power Management</h2>
+        <p>Efficient power usage is crucial in embedded design to optimize battery life.</p>
+        <img src="images/power.jpg" alt="Power Management" width="600">
+        <iframe width="600" height="350" 
+            src="https://www.youtube.com/embed/YOUR_VIDEO_ID_5" 
+            title="YouTube Video Player" 
+            frameborder="0" allowfullscreen>
+        </iframe>
+    `
+};
 
-    // Sidebar Toggle for Mobile
-    menuToggle.addEventListener("click", function () {
-        sidebar.classList.toggle("open");
-    });
-
-    // Close Sidebar When Clicking a Topic (Mobile View)
-    topics.forEach(topic => {
-        topic.addEventListener("click", function () {
-            topics.forEach(t => t.classList.remove("active"));
-            this.classList.add("active");
-
-            const targetSection = document.getElementById(this.dataset.target);
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: "smooth" });
-
-                // Close sidebar after clicking (for mobile users)
-                if (window.innerWidth <= 768) {
-                    sidebar.classList.remove("open");
-                }
-            }
-        });
-    });
-
-    // Show/Hide Scroll-to-Top Button
-    window.addEventListener("scroll", function () {
-        if (window.scrollY > 300) {
-            scrollTopBtn.style.display = "block";
-        } else {
-            scrollTopBtn.style.display = "none";
-        }
-
-        // Highlight active topic based on scroll position
-        let scrollPosition = window.scrollY + 100;
-        topics.forEach(topic => {
-            const targetSection = document.getElementById(topic.dataset.target);
-            if (targetSection) {
-                const sectionTop = targetSection.offsetTop;
-                const sectionHeight = targetSection.offsetHeight;
-
-                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                    topics.forEach(t => t.classList.remove("active"));
-                    topic.classList.add("active");
-                }
-            }
-        });
-    });
-
-    // Scroll to Top Button Click
-    scrollTopBtn.addEventListener("click", function () {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-});
+// Function to load content dynamically
+function loadContent(topic) {
+    document.getElementById("content").innerHTML = content[topic];
+}

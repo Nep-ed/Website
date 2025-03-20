@@ -1,38 +1,29 @@
-/* Reset some default styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Full-page layout */
 body {
+    margin: 0;
+    height: 100%;
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; /* Enables scrolling */
 }
 
-
-/* Main container (holds the sidebar and content) */
 .container {
     display: flex;
-    /*
-    margin-top: 80px; /* Give space for header */
-   /* height: calc(100vh - 80px); /* Subtract header height */
-    height: 100%;
+    flex: 1; /* Ensures the container takes available space */
+    height: 100%; /* Make sure it takes the full height of the body */
 }
 
-/* Sidebar */
 .sidebar {
     width: 250px;
-    background-color: #333;
+    background: #2c3e50;
     color: white;
-    position: fixed;
-    top: 80px; /* Below the header */
-    left: 0;
-    bottom: 0; /* Ensures it stretches till the footer */
-    padding: 20px;
-    overflow-y: auto;
-    z-index: 900; /* Stays below header */
+    padding-top: 20px;
+    height: auto; /* Ensures sidebar takes full height */
+    overflow-y: auto; /* Enables scrolling within the sidebar */
+    scrollbar-width: thin; /* Makes scrollbar thinner */
+    scrollbar-color: #34495e #2c3e50; /* Custom scrollbar colors */
+    flex-shrink: 0; /* Prevents sidebar from shrinking */
+    
 }
 
 .sidebar ul {
@@ -40,28 +31,18 @@ body {
     padding: 0;
 }
 
-.sidebar .topic {
-    padding: 10px;
-    text-decoration: none;
-    color: white;
-    display: block;
-    margin-bottom: 10px;
+.sidebar ul li {
+    padding: 15px;
+    cursor: pointer;
+    transition: background 0.3s;
 }
 
-.sidebar .topic:hover {
-    background-color: #007bff;
+.sidebar ul li:hover {
+    background: #34495e;
 }
 
-/* Content section (main scrolling area) */
 .content {
-    margin-left: 250px; /* Sidebar width */
+    flex-grow: 1; /* Ensures content area takes up remaining space */
     padding: 20px;
     overflow-y: auto;
-    height: 100%;
-    flex-grow: 1; /* Allow content area to take remaining space */
 }
-
-.content section {
-    margin-bottom: 50px; /* Add space between sections */
-}
-
