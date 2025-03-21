@@ -25,7 +25,7 @@ const content = {
         </iframe>
     `,
     microcontrollers: `
-        <h2>Microcontrollers</h2>
+        <h2>Understanding Arduino</h2>
         <p>Microcontrollers are the heart of embedded systems, integrating a CPU, memory, and peripherals.</p>
         <img src="images/microcontroller.jpg" alt="Microcontroller Diagram" width="600">
         <iframe width="600" height="350" 
@@ -35,7 +35,7 @@ const content = {
         </iframe>
     `,
     rtos: `
-        <h2>RTOS Basics</h2>
+        <h2>Getting Started with Arduino</h2>
         <p>Real-Time Operating Systems (RTOS) help manage tasks efficiently in an embedded environment.</p>
         <img src="images/rtos.jpg" alt="RTOS Diagram" width="600">
         <iframe width="600" height="350" 
@@ -45,7 +45,7 @@ const content = {
         </iframe>
     `,
     communication: `
-        <h2>Communication Protocols</h2>
+        <h2>Arduino Hardware</h2>
         <p>Protocols like I2C, SPI, and UART enable devices to communicate efficiently.</p>
         <img src="images/communication.jpg" alt="Communication Protocols" width="600">
         <iframe width="600" height="350" 
@@ -55,7 +55,7 @@ const content = {
         </iframe>
     `,
     power: `
-        <h2>Power Management</h2>
+        <h2>Build your first Arduino Project</h2>
         <p>Efficient power usage is crucial in embedded design to optimize battery life.</p>
         <img src="images/power.jpg" alt="Power Management" width="600">
         <iframe width="600" height="350" 

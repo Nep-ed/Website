@@ -74,6 +74,9 @@ h2 {
 .photos, .projects {
     display: flex;
     gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
 }
 
 .photo, .project {
@@ -85,8 +88,44 @@ h2 {
     flex: 1;
 }
 
+.photo {
+    position: relative;
+    width: 200px; /* Set fixed width */
+    height: 150px; /* Set fixed height */
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Ensure images fully cover the box */
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image fully covers the box */
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+/* Text always centered over the image */
+.photo span {
+    position: relative;
+    z-index: 1;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+
+
 .photo:hover {
     transform: scale(1.2);
+    z-index: 10; /* Make sure it appears on top */
 }
 
 .project:hover {
