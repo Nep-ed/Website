@@ -12,11 +12,24 @@ body, html {
     justify-content: space-between; /* Creates space between text and image */
     width: 100%;
     height: 400px; /* Adjust height as needed */
-    background: #44a59d; /* Optional background color */
+    background: linear-gradient(to right, #44a59d, #2b7a78); /* Smooth transition */
    /* background: #f4f4f4;  Optional background color */
     padding: 0 10%; /* Add space on left & right */
     box-sizing: border-box;
     margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+}
+/* Gradient Overlay for Smoother Transition */
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%; /* Covers the image */
+    height: 100%;
+    background: linear-gradient(to left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)); /* Smooth fade effect */
+    z-index: 1;
 }
 
 /* Text on the Left */
@@ -30,6 +43,8 @@ body, html {
 .hero-text h1 {
     font-size: 2.5rem;
     margin-bottom: 10px;
+    transition: 0.3s ease-in-out;
+
 }
 
 .hero-text p {
@@ -55,10 +70,35 @@ body, html {
 
 /* Image on the Right */
 .hero-image {
-    flex: 0;
-    max-width: 50%;
-    height: 100%;
-    object-fit: cover; /* Ensures image scales properly */
+    width: 50%; /* Covers half the width */
+    height: 100%; /* Covers full height */
+    object-fit: cover; /* Ensures it scales properly */
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.image-slider {
+    width: 300px; /* Adjust width as needed */
+    height: 200px; /* Adjust height as needed */
+    overflow: hidden; /* Hide overflowing images */
+    position: relative;
+    border-radius: 10px;
+}
+
+.slider-track {
+    display: flex;
+    width: max-content;
+    gap: 10px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slider-track img {
+    width: 300px; /* Same as container width */
+    height: 200px; /* Same as container height */
+    object-fit: cover;
+    border-radius: 10px;
 }
 
 h2 {
@@ -109,6 +149,7 @@ h2 {
     top: 0;
     left: 0;
 }
+
 
 
 /* Text always centered over the image */
